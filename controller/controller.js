@@ -1,5 +1,5 @@
 function getValue() {
-  /**==================================
+  /** ==================================
       GET  dei value e quantità di ogni categoria di prodotti
     ==================================*/
   const musicPrice = $("#music").val();
@@ -144,6 +144,7 @@ function calCulatePrice(check, prezzo, quantity, label) {
     let price = prezzo * quantity;
 
     if (checkImported(label)) {
+      //se importato
       // console.log(checkImported(label));
       rate = 0.15;
       taxes = price * rate;
@@ -167,10 +168,11 @@ function calCulatePrice(check, prezzo, quantity, label) {
     if (checkImported(label)) {
       let rate = 0.05;
       taxes = price * rate;
+      console.log(taxes);
       subtotal = price + taxes;
       receiveObj.categories = label;
-      receiveObj.importedTax = price * rate;
-      receiveObj.subtotal = subtotal.toFixed(2);
+      receiveObj.importedTax = taxes.toFixed(2);
+      receiveObj.subtotal = (Math.ceil(subtotal * 20 - 0.5) / 20).toFixed(2);
     } else {
       receiveObj.categories = label;
       //receiveObj.taxFree = true;
