@@ -14,15 +14,15 @@ function getValue() {
   let importedParfumQnt = $("#importedParfQnt").val();
   const importedParfBisPrice = $("#importedParfumBis").val();
   let importedParfBisQnt = $("#importedParfQntBis").val();
-  const bottleParfumPrice = $("bottleParfum").val();
-  let bottleParfumQnt = $("bottleParfQnt").val();
-  const pillsPrice = $("pills").val();
-  let pillsQnt = $("pillQnt").val();
+  const bottleParfumPrice = $("#bottleParfum").val();
+  let bottleParfumQnt = $("#bottleParfQnt").val();
+  const pillsPrice = $("#pills").val();
+  let pillsQnt = $("#pillsQnt").val();
   const boxImportedChockPrice = $("#importedBoxChock").val();
   let boxImpChockQnt = $("#importedBoxChockQnt").val();
 
   /**==================================
-      GET  delle categorie
+      GET  delle categorie 
     ==================================*/
   const music = document.querySelector(".music").textContent;
   const book = document.querySelector(".book").textContent;
@@ -30,15 +30,37 @@ function getValue() {
   const cosmetics = document.querySelector(".cosmetics").textContent;
   const medical = document.querySelector(".medical").textContent;
 
+  /**===============================0
+   *            Titoli
+   * ================================*/
   const chockImporded = document
     .querySelector(".importedChock")
     .textContent.toLocaleLowerCase()
-    .replace(/\s/g, "");
+    .trim();
+
   const parfumImported = document
     .querySelector(".importedParfum")
     .textContent.toLocaleLowerCase()
-    .replace(/\s/g, "");
+    .trim();
 
+  const impBottleParfBis = document
+    .querySelector(".importedParfumBtt")
+    .textContent.toLocaleLowerCase()
+    .trim();
+
+  const bottleParfum = document
+    .querySelector(".bottleParf")
+    .textContent.toLocaleLowerCase()
+    .trim();
+  const pillsTitle = document
+    .querySelector(".pills")
+    .textContent.toLocaleLowerCase()
+    .trim();
+
+  const boxChockTitle = document
+    .querySelector(".importedBoxChock")
+    .textContent.toLocaleLowerCase()
+    .trim();
   /**==================================
         stampa ricevuta
     ==================================*/
@@ -71,10 +93,47 @@ function getValue() {
     parfumImported
   );
 
+  var impBottleParfBisSum = calCulatePrice(
+    checkCategories(impBottleParfBis),
+    importedParfBisPrice,
+    importedParfBisQnt,
+    impBottleParfBis
+  );
 
+  var bottleParfSum = calCulatePrice(
+    checkCategories(cosmetics),
+    bottleParfumPrice,
+    bottleParfumQnt,
+    bottleParfum
+  );
+
+  var pillSum = calCulatePrice(
+    checkCategories(medical),
+    pillsPrice,
+    pillsQnt,
+    pillsTitle
+  );
+
+  var importedBoxChock = calCulatePrice(
+    checkCategories(food),
+    boxImportedChockPrice,
+    boxImpChockQnt,
+    boxChockTitle
+  );
 
   let obj = [];
-  obj.push(musicSum, bookSum, chocoSum, importedChocoSum, importedParfumSum);
+  obj.push(
+    musicSum,
+    bookSum,
+    chocoSum,
+    importedChocoSum,
+    importedParfumSum,
+    impBottleParfBisSum,
+    bottleParfSum,
+    pillSum,
+    importedBoxChock
+  );
+
   console.log(obj);
 }
 
