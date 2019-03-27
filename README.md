@@ -8,7 +8,7 @@ I Used pure Javascript, and how package manager npm from Node.js, so if yuo have
 before procede with the second step
 
 ## Installation
-npm i to install dependecy 
+npm i to install dependecies
 
 ## start application
 npm run dev to start webpack
