@@ -1,7 +1,7 @@
 import { getTitle, getElementbyId } from "./utils";
 
 /** ========================================================
-      GET  del prezzo  e quantità di ogni categoria di prodotti
+      GET  del prezzo  e quantità , categoria e titolo  dei prodotti
     ===========================================================*/
 
 export const getObj = () => {

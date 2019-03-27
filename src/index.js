@@ -1,12 +1,9 @@
-import {
-  checkCategories,
-  calCulatePrice,
-  
-  buildReceive
-} from "./utils";
+import { checkCategories, calCulatePrice, buildReceive } from "./utils";
 import { getObj } from "./price&quantity";
 import "./style/style.css";
-document.getElementById("button").addEventListener("click", printReceive, false);
+document
+  .getElementById("button")
+  .addEventListener("click", printReceive, false);
 document.getElementById("close").addEventListener("click", clearArray, false);
 
 let receipt = [];
