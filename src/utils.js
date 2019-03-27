@@ -67,35 +67,30 @@ export const calCulatePrice = (checkCategories, prezzo, quantity, label) => {
   }
 };
 
-export const getTitle = htmlClass => {
-  let title = document
+export const getTitle = htmlClass =>
+  document
     .querySelector(`${htmlClass}`)
     .textContent.toLocaleLowerCase()
     .trim();
-  return title;
-};
 
 export const buildReceive = obj => {
   let total = 0;
   let totTax = 0;
   obj.map((el, i) => {
     total += parseFloat(el.subtotal);
-    console.log(el.taxes)
     $(".categoria").append(`<li>${el.categories}</li>`);
 
     $(".price").append(`<li>  €  ${el.subtotal}</li>`);
     if (el.taxes === undefined) {
-     $(".tax").append(`<li>Tax free</li>`);
-     
+      $(".tax").append(`<li>Tax free</li>`);
     } else {
       $(".tax").append(`<li>${el.taxes}</li>`);
       totTax += parseFloat(el.taxes);
-
     }
   });
 
-  $(".total").append(`<li> € ${total.toFixed(2) }</li>`);
-  $(".totalTax").append(`<li> € ${totTax.toFixed(2) }</li>`);
+  $(".total").append(`<li> € ${total.toFixed(2)}</li>`);
+  $(".totalTax").append(`<li> € ${totTax.toFixed(2)}</li>`);
 
   //on close della Modal
   $(".modal").on("hidden.bs.modal", function() {

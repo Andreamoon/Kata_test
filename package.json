@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "watch": "webpack --watch",
+    "test": "mocha || true",
     "clean": "rimraf dist",
     "build": " npm run clean && webpack ",
-    "dev": "npm run build && webpack-dev-server "
+    "dev": "npm run build && webpack-dev-server --quiet  "
   },
   "repository": {
     "type": "git",
@@ -20,7 +21,7 @@
   },
   "homepage": "https://github.com/Andreamoon/Kata_test#readme",
   "dependencies": {
-    "extract-text-webpack-plugin": "^2.0.0-beta.4",
+    "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
     "image-loader": "0.0.1"
@@ -29,8 +30,11 @@
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "chai": "^4.2.0",
     "css-loader": "^0.26.4",
     "html-webpack-plugin": "^2.30.1",
+    "mocha": "^6.0.2",
     "rimraf": "^2.6.3",
     "style-loader": "^0.23.1",
     "webpack": "^3.11.0",

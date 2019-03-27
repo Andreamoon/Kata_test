@@ -1,9 +1,3 @@
 {
-  "presets": [[
-    "env", {
-      "targets": {
-        "browsers": ["Chrome >= 55"]
-      }
-    }
-  ]]
+  "presets": ["es2015"]
 }

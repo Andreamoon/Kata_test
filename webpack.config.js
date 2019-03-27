@@ -23,8 +23,8 @@ module.exports = {
         }
       },
       {
-        loader: ExtractTextPlugin.extract({
-          loader: "css-loader"
+        use: ExtractTextPlugin.extract({
+          use: "css-loader"
         }),
         test: /\.css$/
       }
