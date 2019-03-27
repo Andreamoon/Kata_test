@@ -83,12 +83,14 @@ function getValue() {
     chockBarTitle
   );
 
+
   const importedChocoSum = calCulatePrice(
     checkCategories(food),
     importedChockPrice,
     importedChocQnt,
     chockImportTitle
   );
+  console.log(importedChocoSum)
 
   const importedParfumSum = calCulatePrice(
     checkCategories("cosmetics"),

@@ -55,7 +55,7 @@ export const calCulatePrice = (checkCategories, prezzo, quantity, label) => {
       //console.log(taxes);
       let subtotal = price + taxes;
       receiveObj.categories = label;
-      receiveObj.importedTax = taxes.toFixed(2);
+      receiveObj.taxes = taxes.toFixed(2);
       receiveObj.subtotal = (Math.ceil(subtotal * 20 - 0.5) / 20).toFixed(2);
     } else {
       receiveObj.categories = label;
@@ -80,12 +80,13 @@ export const buildReceive = obj => {
   let totTax = 0;
   obj.map((el, i) => {
     total += parseFloat(el.subtotal);
-    
+    console.log(el.taxes)
     $(".categoria").append(`<li>${el.categories}</li>`);
 
     $(".price").append(`<li>  €  ${el.subtotal}</li>`);
     if (el.taxes === undefined) {
-      $(".tax").append(`<li>Tax free</li>`);
+     $(".tax").append(`<li>Tax free</li>`);
+     
     } else {
       $(".tax").append(`<li>${el.taxes}</li>`);
       totTax += parseFloat(el.taxes);
