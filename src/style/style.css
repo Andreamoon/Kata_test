@@ -5,3 +5,12 @@ body {
 .modal-backdrop {
   background-color:#ebebe0	;
 }
+
+.modal-body li{
+  list-style: none;
+  font-size:20px;
+}
+
+.sum{
+  padding-top: 30px;
+}

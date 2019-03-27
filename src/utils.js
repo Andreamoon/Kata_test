@@ -76,22 +76,32 @@ export const getTitle = htmlClass => {
 };
 
 export const buildReceive = obj => {
-  console.log(obj);
-
+  let total = 0;
+  let totTax = 0;
   obj.map((el, i) => {
+    total += parseFloat(el.subtotal);
+    
     $(".categoria").append(`<li>${el.categories}</li>`);
 
-    $(".price").append(`<li>${el.subtotal}</li>`);
+    $(".price").append(`<li>  €  ${el.subtotal}</li>`);
     if (el.taxes === undefined) {
       $(".tax").append(`<li>Tax free</li>`);
     } else {
       $(".tax").append(`<li>${el.taxes}</li>`);
+      totTax += parseFloat(el.taxes);
+
     }
   });
+
+  $(".total").append(`<li> € ${total.toFixed(2) }</li>`);
+  $(".totalTax").append(`<li> € ${totTax.toFixed(2) }</li>`);
+
+  //on close della Modal
   $(".modal").on("hidden.bs.modal", function() {
     $(".categoria").html("");
     $(".price").html("");
     $(".tax").html("");
-    
+    $(".total").html("");
+    $(".totalTax").html("");
   });
 };

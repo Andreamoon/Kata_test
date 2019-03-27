@@ -74,9 +74,10 @@ var _utils = __webpack_require__(1);
 
 __webpack_require__(2);
 
-document.getElementById("button").addEventListener("click", getValue);
+document.getElementById("button").addEventListener("click", getValue, false);
+document.getElementById("close").addEventListener("click", clearArray, false);
 
-var musicSum;
+let receipt = [];
 
 function getValue() {
   /** ========================================================
@@ -127,7 +128,7 @@ function getValue() {
         stampa ricevuta
     ==================================*/
 
-  musicSum = (0, _utils.calCulatePrice)((0, _utils.checkCategories)(music), musicPrice, musicQnt, musicCdTitle);
+  const musicSum = (0, _utils.calCulatePrice)((0, _utils.checkCategories)(music), musicPrice, musicQnt, musicCdTitle);
 
   const bookSum = (0, _utils.calCulatePrice)((0, _utils.checkCategories)(book), bookPrice, bookQnt, bookTitle);
 
@@ -141,21 +142,18 @@ function getValue() {
 
   const bottleParfSum = (0, _utils.calCulatePrice)((0, _utils.checkCategories)("cosmetics"), bottleParfumPrice, bottleParfumQnt, bottleParfTitle);
 
-  console.log(musicSum);
-  // const pillSum = calCulatePrice(
-  //   checkCategories(medical),
-  //   pillsPrice,
-  //   pillsQnt,
-  //   pillsTitle
-  // );
+  const pillSum = (0, _utils.calCulatePrice)((0, _utils.checkCategories)(medical), pillsPrice, pillsQnt, pillsTitle);
 
-  // const importedBoxChock = calCulatePrice(
-  //   checkCategories(food),
-  //   boxImportedChockPrice,
-  //   boxImpChockQnt,
-  //   boxChockTitle
-  // );
+  const importedBoxChock = (0, _utils.calCulatePrice)((0, _utils.checkCategories)(food), boxImportedChockPrice, boxImpChockQnt, boxChockTitle);
 
+  receipt.push(musicSum, bookSum, chocoSum, importedChocoSum, importedParfumSum, importedParfBisSum, bottleParfSum, pillSum, importedBoxChock);
+
+  (0, _utils.buildReceive)(receipt);
+}
+
+function clearArray() {
+  receipt = [];
+  return receipt;
 }
 
 /***/ }),
@@ -192,8 +190,9 @@ const checkImported = exports.checkImported = product => {
     return false;
   }
 };
-var receiveObj = {};
+
 const calCulatePrice = exports.calCulatePrice = (checkCategories, prezzo, quantity, label) => {
+  var receiveObj = {};
   //check sulla categoria medical food etc..
   if (checkCategories) {
     let price = prezzo * quantity;
@@ -242,12 +241,22 @@ const getTitle = exports.getTitle = htmlClass => {
 };
 
 const buildReceive = exports.buildReceive = obj => {
-  let producList = [];
+  console.log(obj);
 
-  producList.push(obj);
+  obj.map((el, i) => {
+    $(".categoria").append(`<li>${el.categories}</li>`);
 
-  producList.map((el, i) => {
-    return el;
+    $(".price").append(`<li>${el.subtotal}</li>`);
+    if (el.taxes === undefined) {
+      $(".tax").append(`<li>Tax free</li>`);
+    } else {
+      $(".tax").append(`<li>${el.taxes}</li>`);
+    }
+  });
+  $(".modal").on("hidden.bs.modal", function () {
+    $(".categoria").html("");
+    $(".price").html("");
+    $(".tax").html("");
   });
 };
 
@@ -259,4 +268,4 @@ const buildReceive = exports.buildReceive = obj => {
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=main.1cfaf2dee16b76c6ef1f.js.map
+//# sourceMappingURL=main.a45a58397f675c862da0.js.map
