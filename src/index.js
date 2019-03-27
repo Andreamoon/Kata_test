@@ -6,12 +6,12 @@ import {
 } from "./utils";
 import { getObj } from "./price&quantity";
 import "./style/style.css";
-document.getElementById("button").addEventListener("click", getValue, false);
+document.getElementById("button").addEventListener("click", printReceive, false);
 document.getElementById("close").addEventListener("click", clearArray, false);
 
 let receipt = [];
 
-function getValue() {
+function printReceive() {
   let obj = getObj();
   console.log(obj);
 
@@ -38,4 +38,4 @@ function clearArray() {
   return receipt;
 }
 
-export default { getValue, clearArray };
+export default { printReceive, clearArray };
