@@ -91,6 +91,8 @@ export const buildHtml = () => {
   );
   htmlObj.map(el => {
     //console.log(el.priceId);
+
+
     $(".panel-body").append(` <div class="row">
     <div class="col-xs-2">
       <img
@@ -121,10 +123,7 @@ export const buildHtml = () => {
         <option value="4">4</option>
         <option value="5">5</option>
         <option value="6">6</option>
-      </select>
-
-
-        
+      </select>    
      
       </div>
       <div class="col-xs-2"></div>
@@ -132,5 +131,10 @@ export const buildHtml = () => {
   </div>
   <hr />
   `);
+
+  $(`#${el.quantityId}`).bind("click", () => {
+    console.log('riabilita')
+    $("button").removeAttr("disabled");
+  });
   });
 };

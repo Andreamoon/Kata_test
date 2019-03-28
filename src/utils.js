@@ -26,10 +26,11 @@ export const checkImported = product => {
 export const calCulatePrice = (checkCategories, prezzo, quantity, label) => {
   var receiveObj = {};
   //check sulla categoria medical food etc..
+
   if (checkCategories) {
     let price = prezzo * quantity;
 
-    if (checkImported(label)) {
+    if (checkImported(label.toLowerCase())) {
       let rate = 0.15;
       let taxes = price * rate;
       let subtotal = price + taxes;
@@ -43,6 +44,7 @@ export const calCulatePrice = (checkCategories, prezzo, quantity, label) => {
       receiveObj.categories = label;
       receiveObj.taxes = taxes.toFixed(2);
       receiveObj.subtotal = subtotal.toFixed(2);
+      receiveObj.quantity = quantity;
     }
 
     return receiveObj;
@@ -57,10 +59,12 @@ export const calCulatePrice = (checkCategories, prezzo, quantity, label) => {
       receiveObj.categories = label;
       receiveObj.taxes = taxes.toFixed(2);
       receiveObj.subtotal = (Math.ceil(subtotal * 20 - 0.5) / 20).toFixed(2);
+      receiveObj.quantity = quantity;
     } else {
       receiveObj.categories = label;
       //receiveObj.taxFree = true;
       receiveObj.subtotal = price;
+      receiveObj.quantity = quantity;
     }
 
     return receiveObj;
@@ -76,7 +80,13 @@ export const getClassValue = htmlClass =>
 export const buildReceive = obj => {
   let total = 0;
   let totTax = 0;
+
   obj.map((el, i) => {
+
+    //console.log(el)
+    if (el > 0) {
+      console.log("maggionre");
+    }
     total += parseFloat(el.subtotal);
     $(".categoria").append(`<li>${el.categories}</li>`);
 

@@ -1,25 +1,39 @@
-import { checkCategories, calCulatePrice, buildReceive } from "./utils";
-import { getObj } from "./getProduct";
-import { buildHtml} from "./buildHtml";
+import {
+  checkCategories,
+  calCulatePrice,
+  buildReceive
+} from "./utils";
+import {
+  getObj
+} from "./getProduct";
+import {
+  buildHtml
+} from "./buildHtml";
 
 import "./style/style.css";
 
 buildHtml();
-document
-  .getElementById("button")
-  .addEventListener("click", printReceive, false);
-document.getElementById("close").addEventListener("click", clearArray, false);
+
+$("#button").bind("click", () => {
+  printReceive();
+});
+
+$(".closeMod ").bind("click", () => {
+  clearArray();
+});
 
 let receipt = [];
 
 function printReceive() {
   let obj = getObj();
+  let boolean = false;
 
   /**==================================
         stampa ricevuta
     ==================================*/
 
   obj.map(el => {
+
     receipt.push(
       calCulatePrice(
         checkCategories(el.category),
@@ -30,6 +44,7 @@ function printReceive() {
     );
   });
 
+
   buildReceive(receipt);
 }
 
@@ -38,4 +53,7 @@ function clearArray() {
   return receipt;
 }
 
-export default { printReceive, clearArray };
+export default {
+  printReceive,
+  clearArray
+};
