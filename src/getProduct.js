@@ -45,7 +45,7 @@ export const getObj = () => {
   importedParfum.price = $("#importedhParfumIdPrice").val();
   importedParfum.quantity = $("#importedParfumIdQnt").val();
   importedParfum.category = getClassValue(".cosmetics");
-
+  
   // /** importedParfmBis*/
   importedParfBis.title = getClassValue(".Bis");
   importedParfBis.price = $("#importedParfumBisIdPrice").val();
@@ -81,6 +81,6 @@ export const getObj = () => {
     pills,
     importedChock
   );
-
+   
   return obj;
 };

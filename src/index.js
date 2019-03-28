@@ -22,11 +22,17 @@ $(".closeMod ").bind("click", () => {
   clearArray();
 });
 
+
+
+
 let receipt = [];
 
 function printReceive() {
   let obj = getObj();
   let boolean = false;
+
+
+  
 
   /**==================================
         stampa ricevuta
@@ -34,6 +40,7 @@ function printReceive() {
 
   obj.map(el => {
 
+    
     receipt.push(
       calCulatePrice(
         checkCategories(el.category),
@@ -43,7 +50,6 @@ function printReceive() {
       )
     );
   });
-
 
   buildReceive(receipt);
 }

@@ -37,6 +37,7 @@ export const calCulatePrice = (checkCategories, prezzo, quantity, label) => {
       receiveObj.categories = label;
       receiveObj.taxes = taxes.toFixed(2);
       receiveObj.subtotal = subtotal.toFixed(2);
+      receiveObj.quantity = quantity;
     } else {
       let rate = 0.1;
       let taxes = price * rate;
@@ -73,9 +74,9 @@ export const calCulatePrice = (checkCategories, prezzo, quantity, label) => {
 
 export const getClassValue = htmlClass =>
   document
-    .querySelector(`${htmlClass}`)
-    .textContent.toLowerCase()
-    .trim();
+  .querySelector(`${htmlClass}`)
+  .textContent.toLowerCase()
+  .trim();
 
 export const buildReceive = obj => {
   let total = 0;
@@ -83,10 +84,10 @@ export const buildReceive = obj => {
 
   obj.map((el, i) => {
 
-    //console.log(el)
-    if (el > 0) {
-      console.log("maggionre");
-    }
+    // console.log(el)
+    // if (el > 0) {
+    //   console.log("maggionre");
+    // }
     total += parseFloat(el.subtotal);
     $(".categoria").append(`<li>${el.categories}</li>`);
 
@@ -103,7 +104,7 @@ export const buildReceive = obj => {
   $(".totalTax").append(`<li> € ${totTax.toFixed(2)}</li>`);
 
   //on close della Modal
-  $(".modal").on("hidden.bs.modal", function() {
+  $(".modal").on("hidden.bs.modal", function () {
     $(".categoria").html("");
     $(".price").html("");
     $(".tax").html("");

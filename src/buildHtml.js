@@ -1,5 +1,7 @@
 import Product from "./ProductClass";
 
+
+let checkQnt = 0;
 export const buildHtml = () => {
   let htmlObj = [];
 
@@ -132,9 +134,38 @@ export const buildHtml = () => {
   <hr />
   `);
 
-  $(`#${el.quantityId}`).bind("click", () => {
-    console.log('riabilita')
-    $("button").removeAttr("disabled");
-  });
+
+
+    // if (parseInt($(`#${el.quantityId}`).val()) === 0) {
+    //   //console.log($(`#${el.quantityId}`).val());
+    //   $("#button").attr("disabled", true);
+    // }
+
+    // $(`#${el.quantityId}`).bind("click", () => {
+
+
+    //   if (checkQnt <= 0) {
+    //     checkQnt += parseInt($(`#${el.quantityId}`).val())
+    //     localStorage.setItem('quantity', checkQnt)
+    //   } else {
+    //     checkQnt -= parseInt($(`#${el.quantityId}`).val())
+    //     localStorage.setItem('quantity', checkQnt)
+
+    //   }
+    //   // checkQnt -= parseInt($(`#${el.quantityId}`).val())
+    //   //localStorage.setItem('quantity', checkQnt)
+
+    //   console.log(checkQnt)
+
+    //   if (parseInt($(`#${el.quantityId}`).val()) === 0) {
+    //     // console.log(parseInt($(`#${el.quantityId}`).val()))
+    //     $("#button").attr("disabled", true);
+    //   } else {
+    //     $("button").removeAttr("disabled");
+
+    //   }
+    // });
+
+
   });
 };
