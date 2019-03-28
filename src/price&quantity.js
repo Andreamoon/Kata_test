@@ -1,4 +1,4 @@
-import { getTitle, getElementbyId } from "./utils";
+import { getClassValue, getElementbyId } from "./utils";
 
 /** ========================================================
       GET  del prezzo  e quantità , categoria e titolo  dei prodotti
@@ -8,8 +8,8 @@ export const getObj = () => {
   const obj = [];
   let music = {};
   let book = {};
-  let chocholate = {};
-  let importedChocolatebar = {};
+  let chocholateBar = {};
+  let importedChocolateBox = {};
   let importedParfum = {};
   let importedParfBis = {};
   let bottleOfParfum = {};
@@ -17,69 +17,70 @@ export const getObj = () => {
   let importedChock = {};
 
   /**music */
-  music.title = getTitle(".musicCd");
-  music.price = $("#music").val();
-  music.quantity = $("#musicQnt").val();
-  music.category = "music";
+  music.title = getClassValue(".cd");
+  music.price = $("#musicIdPrice").val();
+  music.quantity = $("#musicIdQnt").val();
+  music.category = getClassValue(".music");
 
   /**book */
-  book.title = getTitle(".bookTitle");
-  book.price = $("#book").val();
-  book.quantity = $("#bookQnt").val();
-  book.category = document.querySelector(".book").textContent;
+  book.title = getClassValue(".Book");
+  book.price = $("#bookIdPrice").val();
+  book.quantity = $("#bookIdQnt").val();
+  book.category = getClassValue(".book");
 
-  /**chocolate */
-  chocholate.title = getTitle(".chocolateBar");
-  chocholate.price = $("#chocolate").val();
-  chocholate.quantity = $("#chocQnt").val();
-  chocholate.category = document.querySelector(".food").textContent;
+  // /**chocolate */
+  chocholateBar.title = getClassValue(".Bar");
+  chocholateBar.price = $("#chockBarIdPrice").val();
+  chocholateBar.quantity = $("#chockBarIdQnt").val();
+  chocholateBar.category = getClassValue(".food");
 
   /**importedchocolateBar */
-  importedChocolatebar.title = getTitle(".importedChock");
-  importedChocolatebar.price = $("#importedChock").val();
-  importedChocolatebar.quantity = $("#importedChocQnt").val();
-  importedChocolatebar.category = document.querySelector(".food").textContent;
+  importedChocolateBox.title = getClassValue(".bar");
+  importedChocolateBox.price = $("#importedhChockBoxIdPrice").val();
+  importedChocolateBox.quantity = $("#importedChockBoxIdQnt").val();
+  importedChocolateBox.category = getClassValue(".food");
 
-  /**importedParfum */
-  importedParfum.title = getTitle(".importedParfum");
-  importedParfum.price = $("#importedParfum").val();
-  importedParfum.quantity = $("#importedParfQnt").val();
-  importedParfum.category = "cosmetics";
+  // /**importedParfum */
+  importedParfum.title = getClassValue(".bottle");
+  importedParfum.price = $("#importedhParfumIdPrice").val();
+  importedParfum.quantity = $("#importedParfumIdQnt").val();
+  importedParfum.category = getClassValue(".cosmetics");
 
-  /** importedParfmBis*/
-  importedParfBis.title = getTitle(".importedParfumBis");
-  importedParfBis.price = $("#importedParfumBis").val();
-  importedParfBis.quantity = $("#importedParfQntBis").val();
-  importedParfBis.category = "cosmetics";
+  // /** importedParfmBis*/
+  importedParfBis.title = getClassValue(".Bis");
+  importedParfBis.price = $("#importedParfumBisIdPrice").val();
+  importedParfBis.quantity = $("#importedParfumBisIdQnt").val();
+  importedParfBis.category = getClassValue(".cosmetics");
 
-  /** bottle of parfum */
-  bottleOfParfum.title = getTitle(".bottleParf");
-  bottleOfParfum.price = $("#bottleParfum").val();
-  bottleOfParfum.quantity =  $("#bottleParfQnt").val();
-  bottleOfParfum.category = "cosmetics";
+  // /** bottle of parfum */
+  bottleOfParfum.title = getClassValue(".parfum");
+  bottleOfParfum.price = $("#bottleParfIdPrice").val();
+  bottleOfParfum.quantity = $("#bottleParfIdQnt").val();
+  bottleOfParfum.category = getClassValue(".cosmetics");
 
-  /**pills */
-  pills.title = getTitle(".pills");
-  pills.price = $("#pills").val();
-  pills.quantity = $("#pillsQnt").val();
-  pills.category = document.querySelector(".medical").textContent;
+  // /**pills */
+  pills.title = getClassValue(".pills");
+  pills.price = $("#pillsIdPrice").val();
+  pills.quantity = $("#pillsIdQnt").val();
+  pills.category = getClassValue(".medical");
 
-  /**importedChock */
-  importedChock.title = getTitle(".importedBoxChock");
-  importedChock.price = $("#importedBoxChock").val();
-  importedChock.quantity = $("#importedBoxChockQnt").val();
-  importedChock.category = document.querySelector(".food").textContent;
+  // /**importedChock */
+  importedChock.title = getClassValue(".chocolates");
+  importedChock.price = $("#importedChockBoxIdPrice").val();
+  importedChock.quantity = $("#importedChockBoxIdQnt").val();
+  importedChock.category = getClassValue(".food");
 
   obj.push(
     music,
     book,
-    chocholate,
-    importedChocolatebar,
+    chocholateBar,
+    importedChocolateBox,
     importedParfum,
     importedParfBis,
     bottleOfParfum,
     pills,
     importedChock
   );
+
   return obj;
 };

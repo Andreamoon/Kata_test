@@ -67,10 +67,10 @@ export const calCulatePrice = (checkCategories, prezzo, quantity, label) => {
   }
 };
 
-export const getTitle = htmlClass =>
+export const getClassValue = htmlClass =>
   document
     .querySelector(`${htmlClass}`)
-    .textContent.toLocaleLowerCase()
+    .textContent.toLowerCase()
     .trim();
 
 export const buildReceive = obj => {

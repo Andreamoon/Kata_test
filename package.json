@@ -6,7 +6,7 @@
   "scripts": {
     "watch": "webpack --watch",
     "test": "mocha || true",
-    "clean": "rimraf dist",
+    "clean": "rimraf dist/*",
     "build": " npm run clean && webpack ",
     "dev": "npm run build && webpack-dev-server --quiet  "
   },

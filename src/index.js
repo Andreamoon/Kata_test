@@ -1,6 +1,10 @@
 import { checkCategories, calCulatePrice, buildReceive } from "./utils";
 import { getObj } from "./price&quantity";
+import { buildHtml} from "./buildHtml";
+
 import "./style/style.css";
+
+buildHtml();
 document
   .getElementById("button")
   .addEventListener("click", printReceive, false);
@@ -10,7 +14,6 @@ let receipt = [];
 
 function printReceive() {
   let obj = getObj();
-  console.log(obj);
 
   /**==================================
         stampa ricevuta
