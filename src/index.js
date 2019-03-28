@@ -1,5 +1,5 @@
 import { checkCategories, calCulatePrice, buildReceive } from "./utils";
-import { getObj } from "./price&quantity";
+import { getObj } from "./getProduct";
 import { buildHtml} from "./buildHtml";
 
 import "./style/style.css";

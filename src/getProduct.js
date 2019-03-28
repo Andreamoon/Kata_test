@@ -66,8 +66,8 @@ export const getObj = () => {
 
   // /**importedChock */
   importedChock.title = getClassValue(".chocolates");
-  importedChock.price = $("#importedChockBoxIdPrice").val();
-  importedChock.quantity = $("#importedChockBoxIdQnt").val();
+  importedChock.price = $("#BoximportedChockIdPrice").val();
+  importedChock.quantity = $("#BoximportedChockIdQnt").val();
   importedChock.category = getClassValue(".food");
 
   obj.push(

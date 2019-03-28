@@ -74,8 +74,8 @@ export const buildHtml = () => {
     "11.25",
     0,
     "food",
-    "importedChockBoxIdPrice",
-    "importedChockBoxIdQnt"
+    "BoximportedChockIdPrice",
+    "BoximportedChockIdQnt"
   );
 
   htmlObj.push(
@@ -112,12 +112,20 @@ export const buildHtml = () => {
         />
       </div>
       <div class="col-xs-4">
-        <input
-          type="text"
-          class="form-control input-sm"
-          id="${el.quantityId}"
-          value=${el.quantity}
-        />
+
+      <select class="form-control input-sm" id="${el.quantityId}">
+      <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select>
+
+
+        
+     
       </div>
       <div class="col-xs-2"></div>
     </div>
