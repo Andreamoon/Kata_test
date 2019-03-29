@@ -8,7 +8,7 @@
     "test": "mocha || true",
     "clean": "rimraf dist/*",
     "build": " npm run clean && webpack ",
-    "dev": "npm run build && webpack-dev-server --quiet  "
+    "dev": "npm run build && webpack-dev-server --open --quiet  "
   },
   "repository": {
     "type": "git",
@@ -21,10 +21,13 @@
   },
   "homepage": "https://github.com/Andreamoon/Kata_test#readme",
   "dependencies": {
+    "bootstrap": "^4.3.1",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
-    "image-loader": "0.0.1"
+    "image-loader": "0.0.1",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.7"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

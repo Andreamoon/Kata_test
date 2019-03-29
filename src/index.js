@@ -10,6 +10,7 @@ import {
   buildHtml
 } from "./buildHtml";
 
+
 import "./style/style.css";
 
 buildHtml();
@@ -26,7 +27,7 @@ $(".closeMod ").bind("click", () => {
 
 
 let receipt = [];
-
+let price;
 function printReceive() {
   let obj = getObj();
   let boolean = false;
@@ -39,18 +40,19 @@ function printReceive() {
     ==================================*/
 
   obj.map(el => {
+  
+    price = el.price.replace(/€/g,'');
 
-    
     receipt.push(
       calCulatePrice(
         checkCategories(el.category),
-        el.price,
+        price,
         el.quantity,
         el.title
       )
     );
   });
-
+  
   buildReceive(receipt);
 }
 

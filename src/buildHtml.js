@@ -95,27 +95,29 @@ export const buildHtml = () => {
     //console.log(el.priceId);
 
 
-    $(".panel-body").append(` <div class="row">
-    <div class="col-xs-2">
+    $(".card-body").append(` <div class="row">
+    <div class="col-sm-2">
       <img
         class="img-responsive"
         src="http://placehold.it/100x70"
       />
     </div>
-    <div class="col-xs-4">
+    <div class="col-sm-6 float:left">
       <h4 class="product-name ${el.title}"><strong>${el.title}</strong></h4>
       <h4><small class="${el.category}" >${el.category}</small></h4>
     </div>
-    <div class="col-xs-6">
-      <div class="col-xs-6 text-right">
+    <div class="col-sm-4">
+    
+      <div class="col-sm-6 float-right">
+     
         <input
           type="text"
           class="form-control input-sm"
           id="${el.priceId}"
-          value="${el.price}"
+          value=" € ${el.price}"
         />
       </div>
-      <div class="col-xs-4">
+      <div class="col-sm-6">
 
       <select class="form-control input-sm" id="${el.quantityId}">
       <option value="0">0</option>
@@ -128,7 +130,7 @@ export const buildHtml = () => {
       </select>    
      
       </div>
-      <div class="col-xs-2"></div>
+      
     </div>
   </div>
   <hr />

@@ -9,7 +9,7 @@ module.exports = {
   //defin output point
   output: {
     path: path.join(__dirname, "dist"),
-    filename: "[name].[chunkhash].js"
+    filename: "bundle.[chunkhash].js"
   },
   devtool: "cheap-module-source-map",
 

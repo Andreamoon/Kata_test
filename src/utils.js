@@ -26,6 +26,7 @@ export const checkImported = product => {
 export const calCulatePrice = (checkCategories, prezzo, quantity, label) => {
   var receiveObj = {};
   //check sulla categoria medical food etc..
+  
 
   if (checkCategories) {
     let price = prezzo * quantity;
