@@ -108,7 +108,7 @@ export const buildHtml = () => {
     </div>
     <div class="col-sm-4">
     
-      <div class="col-sm-6 float-right">
+      <div class="col-sm-6 float-right p-0">
      
         <input
           type="text"
@@ -117,7 +117,7 @@ export const buildHtml = () => {
           value=" € ${el.price}"
         />
       </div>
-      <div class="col-sm-6">
+      <div class="col-sm-6 p-0">
 
       <select class="form-control input-sm" id="${el.quantityId}">
       <option value="0">0</option>
@@ -135,6 +135,21 @@ export const buildHtml = () => {
   </div>
   <hr />
   `);
+    // checkQnt += parseInt($(`#${el.quantityId}`).val())
+    // $(`#${el.quantityId}`).bind("click", () => {
+    //   if (parseInt($(`#${el.quantityId}`).val()) === 0) {
+
+
+    //     console.log($(`#${el.quantityId}`).val())
+
+    //   $("#button").attr("disabled", true);
+
+    //   }else{
+    //     $("button").removeAttr("disabled");
+    //   }
+
+
+    // })
 
 
 

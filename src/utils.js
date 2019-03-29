@@ -85,17 +85,16 @@ export const buildReceive = obj => {
 
   obj.map((el, i) => {
 
-    //console.log(parseInt(el.quantity))
-
-
+  
+    //check su quantità
     if (parseInt(el.quantity) > 0) {
-      console.log("maggionre");
+
 
 
       total += parseFloat(el.subtotal);
       $(".categoria").append(`<li>${el.categories}</li>`);
 
-      $(".price").append(`<li>  €  ${el.subtotal.toFixed(2)}</li>`);
+      $(".price").append(`<li>  €  ${el.subtotal}</li>`);
       if (el.taxes === undefined) {
         $(".tax").append(`<li>Tax free</li>`);
       } else {
