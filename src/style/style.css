@@ -8,6 +8,10 @@ body {
   background-color:#ebebe0	;
 }
 
+.modal-content{
+  width: 650px;
+}
+
 .modal-body li{
   list-style: none;
   font-size:20px;

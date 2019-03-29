@@ -26,7 +26,7 @@ export const checkImported = product => {
 export const calCulatePrice = (checkCategories, prezzo, quantity, label) => {
   var receiveObj = {};
   //check sulla categoria medical food etc..
-  
+
 
   if (checkCategories) {
     let price = prezzo * quantity;
@@ -85,20 +85,28 @@ export const buildReceive = obj => {
 
   obj.map((el, i) => {
 
-    // console.log(el)
-    // if (el > 0) {
-    //   console.log("maggionre");
-    // }
-    total += parseFloat(el.subtotal);
-    $(".categoria").append(`<li>${el.categories}</li>`);
+    //console.log(parseInt(el.quantity))
 
-    $(".price").append(`<li>  €  ${el.subtotal}</li>`);
-    if (el.taxes === undefined) {
-      $(".tax").append(`<li>Tax free</li>`);
-    } else {
-      $(".tax").append(`<li>${el.taxes}</li>`);
-      totTax += parseFloat(el.taxes);
+
+    if (parseInt(el.quantity) > 0) {
+      console.log("maggionre");
+
+
+      total += parseFloat(el.subtotal);
+      $(".categoria").append(`<li>${el.categories}</li>`);
+
+      $(".price").append(`<li>  €  ${el.subtotal.toFixed(2)}</li>`);
+      if (el.taxes === undefined) {
+        $(".tax").append(`<li>Tax free</li>`);
+      } else {
+        $(".tax").append(`<li>${el.taxes}</li>`);
+        totTax += parseFloat(el.taxes);
+      }
+
+
+
     }
+
   });
 
   $(".total").append(`<li> € ${total.toFixed(2)}</li>`);
