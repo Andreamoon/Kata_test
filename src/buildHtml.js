@@ -1,4 +1,5 @@
 import Product from "./ProductClass";
+import $ from "jquery";
 
 
 let checkQnt = 0;
@@ -135,6 +136,33 @@ export const buildHtml = () => {
   </div>
   <hr />
   `);
+
+
+
+    $(`#${el.quantityId}`).change(function () {
+
+      $("button").removeAttr("disabled");
+
+      var optionSelected = $(this).find("option:selected");
+      var valueSelected = optionSelected.val();
+      checkQnt += 1;
+      if (checkQnt === 0) {
+
+        $("#button").attr("disabled", true);
+        checkQnt -= parseInt(valueSelected)
+        checkQnt = 0;
+      
+
+      } else {
+        checkQnt = 0;
+      }
+
+      localStorage.setItem('quantity', checkQnt)
+
+
+
+    });
+
     // checkQnt += parseInt($(`#${el.quantityId}`).val())
     // $(`#${el.quantityId}`).bind("click", () => {
     //   if (parseInt($(`#${el.quantityId}`).val()) === 0) {

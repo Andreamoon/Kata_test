@@ -98,7 +98,7 @@ export const buildReceive = obj => {
       if (el.taxes === undefined) {
         $(".tax").append(`<li>Tax free</li>`);
       } else {
-        $(".tax").append(`<li>${el.taxes}</li>`);
+        $(".tax").append(`<li> € ${el.taxes}</li>`);
         totTax += parseFloat(el.taxes);
       }
 

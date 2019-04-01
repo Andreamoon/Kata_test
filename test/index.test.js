@@ -1,9 +1,7 @@
-const assert = require("chai").assert;
-//richiedo il file da testare
-import index from'../src/index'
 
-describe('Index',function(){
-  it('lbl',function(){
-    assert.equal(index(),true)
-  })
-})
+//richiedo il file da testare
+import {clearArray, receipt} from'../src/index'
+
+test('should return a boolean', () => {
+  expect(clearArray).toBe(undefined)
+});

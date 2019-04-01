@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -17,7 +16,7 @@
 <body>
   <div class="container">
     <h1>Tax Sales Test</h1>
-    <h4>
+    <h5>
       Basic sales tax is applicable at a rate of 10% on all goods, except
       books, food, and medical products that are exempt. Import duty is an
       additional sales tax applicable on all imported goods at a rate of 5%,
@@ -27,7 +26,7 @@
       sales taxes paid. The rounding rules for sales tax are that for a tax
       rate of n%, a shelf price of p contains (np/100 rounded up to the
       nearest 0.05) amount of sales tax.
-    </h4>
+    </h5>
   </div>
 
   <div class="container">
@@ -37,11 +36,11 @@
           <div class="card-header">
             <div class="card-title">
               <div class="row">
-                <div class="col-sm-6">
-                  <h5>
+                <div class="col-sm-6 text-center">
+                  <h4  class="p-0">
                     <span class="glyphicon glyphicon-shopping-cart"></span>
                     Shopping Cart
-                  </h5>
+                  </h4>
                 </div>
                 <div class="col-sm-6">
                   <!--======================================-->
@@ -85,7 +84,7 @@
 
               </div>
               <div class="col-sm-3">
-                <button type="button" id="button" class="btn btn-success btn-block" data-backdrop="static"
+                <button type="button" id="button" disabled="true"class="btn btn-success btn-block" data-backdrop="static"
                   data-keyboard="false" data-toggle="modal" data-target="#myModal">
                   Checkout
                 </button>

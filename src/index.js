@@ -9,8 +9,9 @@ import {
 import {
   buildHtml
 } from "./buildHtml";
+import $ from "jquery";
 
-
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import "./style/style.css";
 
 buildHtml();
@@ -26,7 +27,7 @@ $(".closeMod ").bind("click", () => {
 
 
 
-let receipt = [];
+export let receipt = [];
 let price;
 function printReceive() {
   let obj = getObj();
@@ -57,7 +58,7 @@ function printReceive() {
 }
 
 function clearArray() {
-  receipt = [];
+  this.receipt = [];
   return receipt;
 }
 
@@ -65,3 +66,4 @@ export default {
   printReceive,
   clearArray
 };
+
