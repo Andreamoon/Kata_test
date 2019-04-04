@@ -18,7 +18,8 @@ test("should return a boolean", () => {
 
 });
 
-// test("should return an Html Class", () => {
-//   expect(getClassValue('modal') === "modal").toBe(false);
+// test("should return a textcontent from  css Class", () => {
+//   expect(getClassValue('.container') === "shopping cart").toMatchSnapshot()
 
 // });
+// console.log(getClassValue('.card-title'))

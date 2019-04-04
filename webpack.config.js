@@ -14,8 +14,7 @@ module.exports = {
   devtool: "cheap-module-source-map",
 
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.(js|jsx|mjs)$/,
         exclude: /node_modules/,
         use: {
@@ -27,6 +26,14 @@ module.exports = {
           use: "css-loader"
         }),
         test: /\.css$/
+      }, {
+        test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png/, /\.ico$/],
+        exclude: /node_modules/,
+        loader: require.resolve("url-loader"),
+        options: {
+          limit: 10000,
+          name: "static/media/[name].[ext]"
+        }
       }
     ]
   },

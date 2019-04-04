@@ -16,6 +16,8 @@ export const getObj = () => {
   let pills = {};
   let importedChock = {};
 
+
+  
   /**music */
   music.title = getClassValue(".cd");
   music.price = $("#musicIdPrice").val();
@@ -82,6 +84,6 @@ export const getObj = () => {
     importedChock
   );
 
-   
+  
   return obj;
 };

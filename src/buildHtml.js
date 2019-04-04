@@ -1,8 +1,12 @@
 import Product from "./ProductClass";
 import $ from "jquery";
-
-
-let checkQnt = 0;
+import music from "./assets/products/musicCd.jpeg"
+import books from "./assets/products/books.jpg"
+import chockBarImage from "./assets/products/chocolateBar.jpg"
+import chockBox from './assets/products/chockBox.jpg'
+import parfumImage from './assets/products/parfum.jpeg'
+import pillsImage from './assets/products/pills.jpeg'
+let count = 0;
 export const buildHtml = () => {
   let htmlObj = [];
 
@@ -13,7 +17,8 @@ export const buildHtml = () => {
     0,
     "music",
     "musicIdPrice",
-    "musicIdQnt"
+    "musicIdQnt",
+    music
   );
 
   let book = new Product(
@@ -22,7 +27,7 @@ export const buildHtml = () => {
     0,
     "book",
     "bookIdPrice",
-    "bookIdQnt"
+    "bookIdQnt", books
   );
   let chocholateBar = new Product(
     "Chocholate Bar",
@@ -30,7 +35,7 @@ export const buildHtml = () => {
     0,
     "food",
     "chockBarIdPrice",
-    "chockBarIdQnt"
+    "chockBarIdQnt", chockBarImage
   );
   let importedBoxChocolate = new Product(
     "Imported box chocholate bar",
@@ -38,7 +43,7 @@ export const buildHtml = () => {
     0,
     "food",
     "importedhChockBoxIdPrice",
-    "importedChockBoxIdQnt"
+    "importedChockBoxIdQnt", chockBox
   );
   let importedParfum = new Product(
     "Imported Parfum bottle",
@@ -46,7 +51,7 @@ export const buildHtml = () => {
     0,
     "cosmetics",
     "importedhParfumIdPrice",
-    "importedParfumIdQnt"
+    "importedParfumIdQnt", parfumImage
   );
   let importedParfBis = new Product(
     "Imported Parfum Bis",
@@ -54,7 +59,7 @@ export const buildHtml = () => {
     0,
     "cosmetics",
     "importedParfumBisIdPrice",
-    "importedParfumBisIdQnt"
+    "importedParfumBisIdQnt", parfumImage
   );
   let bottleOfParfum = new Product(
     "Bottle of parfum",
@@ -62,7 +67,7 @@ export const buildHtml = () => {
     0,
     "cosmetics",
     "bottleParfIdPrice",
-    "bottleParfIdQnt"
+    "bottleParfIdQnt", parfumImage
   );
   let pills = new Product(
     "packet of headache pills",
@@ -70,7 +75,7 @@ export const buildHtml = () => {
     0,
     "medical",
     "pillsIdPrice",
-    "pillsIdQnt"
+    "pillsIdQnt", pillsImage
   );
   let importedChock = new Product(
     "box of imported chocolates",
@@ -78,7 +83,7 @@ export const buildHtml = () => {
     0,
     "food",
     "BoximportedChockIdPrice",
-    "BoximportedChockIdQnt"
+    "BoximportedChockIdQnt", chockBox
   );
 
   htmlObj.push(
@@ -100,7 +105,7 @@ export const buildHtml = () => {
     <div class="col-sm-2">
       <img
         class="img-responsive"
-        src="http://placehold.it/100x70"
+        src="${el.imageUrl}"
       />
     </div>
     <div class="col-sm-6 float:left">
@@ -138,79 +143,48 @@ export const buildHtml = () => {
   `);
 
 
-
-    $(`#${el.quantityId}`).change(function () {
-
-      $("button").removeAttr("disabled");
-
-      var optionSelected = $(this).find("option:selected");
-      var valueSelected = optionSelected.val();
-      checkQnt += 1;
-      if (checkQnt === 0) {
-
-        $("#button").attr("disabled", true);
-        checkQnt -= parseInt(valueSelected)
-        checkQnt = 0;
-      
-
-      } else {
-        checkQnt = 0;
-      }
-
-      localStorage.setItem('quantity', checkQnt)
+    $(`#${el.quantityId}`).on('change', function () {
+      console.log($(this).val())
 
 
+      //$("button").prop('disabled', !$(this).val());
 
-    });
+    }).trigger('change');
+    // $(`#${el.quantityId}`).change(function () {
 
-    // checkQnt += parseInt($(`#${el.quantityId}`).val())
-    // $(`#${el.quantityId}`).bind("click", () => {
-    //   if (parseInt($(`#${el.quantityId}`).val()) === 0) {
-
-
-    //     console.log($(`#${el.quantityId}`).val())
-
-    //   $("#button").attr("disabled", true);
-
-    //   }else{
-    //     $("button").removeAttr("disabled");
-    //   }
+    //   var optionSelected = $(this).find("option:selected");
+    //   var valueSelected = optionSelected.val();
+    //   var selectedVal = $(this).val();
+    //   console.log(valueSelected)
+    //   console.log('valore selezionato  ',selectedVal)
 
 
-    // })
+    //   if (parseInt(valueSelected) > 0) {
+    //     count += parseInt(valueSelected);
+    //     console.log(count)
+    //     //localStorage.setItem('quantity', parseInt(valueSelected))
+    //   //  $("button").removeAttr("disabled");
 
-
-
-    // if (parseInt($(`#${el.quantityId}`).val()) === 0) {
-    //   //console.log($(`#${el.quantityId}`).val());
-    //   $("#button").attr("disabled", true);
-    // }
-
-    // $(`#${el.quantityId}`).bind("click", () => {
-
-
-    //   if (checkQnt <= 0) {
-    //     checkQnt += parseInt($(`#${el.quantityId}`).val())
-    //     localStorage.setItem('quantity', checkQnt)
     //   } else {
-    //     checkQnt -= parseInt($(`#${el.quantityId}`).val())
-    //     localStorage.setItem('quantity', checkQnt)
+    //     localStorage.setItem('quantity', parseInt(valueSelected))
 
-    //   }
-    //   // checkQnt -= parseInt($(`#${el.quantityId}`).val())
-    //   //localStorage.setItem('quantity', checkQnt)
-
-    //   console.log(checkQnt)
-
-    //   if (parseInt($(`#${el.quantityId}`).val()) === 0) {
-    //     // console.log(parseInt($(`#${el.quantityId}`).val()))
     //     $("#button").attr("disabled", true);
-    //   } else {
-    //     $("button").removeAttr("disabled");
-
     //   }
+
+    //   $(`#${el.quantityId}`).click(function () {
+    //     var optionSelected = $(this);
+    //     var valueSelected = optionSelected.val();
+    //     var textSelected = optionSelected.text();
+    //     console.log('clicked value ', valueSelected)
+    //     count -= parseInt(valueSelected);
+    //     console.log(count)
+    //     //console.log(parseInt(valueSelected))
+    //   });
+
     // });
 
 
   });
+
+
 };

@@ -73,11 +73,12 @@ export const calCulatePrice = (checkCategories, prezzo, quantity, label) => {
   }
 };
 
-export const getClassValue = htmlClass =>
-  document
-  .querySelector(`${htmlClass}`)
-  .textContent.toLowerCase()
-  .trim();
+export const getClassValue = htmlClass => {
+  return document.querySelector(`${htmlClass}`)
+    .textContent.toLowerCase()
+    .trim();
+
+}
 
 export const buildReceive = obj => {
   let total = 0;
@@ -85,7 +86,7 @@ export const buildReceive = obj => {
 
   obj.map((el, i) => {
 
-  
+
     //check su quantità
     if (parseInt(el.quantity) > 0) {
 
@@ -111,7 +112,7 @@ export const buildReceive = obj => {
   $(".total").append(`<li> € ${total.toFixed(2)}</li>`);
   $(".totalTax").append(`<li> € ${totTax.toFixed(2)}</li>`);
 
-  //on close della Modal
+  //on close della Modal RESET DELLA MODAL
   $(".modal").on("hidden.bs.modal", function () {
     $(".categoria").html("");
     $(".price").html("");

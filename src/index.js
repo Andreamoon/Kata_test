@@ -13,6 +13,8 @@ import $ from "jquery";
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import "./style/style.css";
+import './assets/favicon.ico';
+
 
 buildHtml();
 
@@ -58,7 +60,7 @@ function printReceive() {
 }
 
 function clearArray() {
-  this.receipt = [];
+  receipt = [];
   return receipt;
 }
 

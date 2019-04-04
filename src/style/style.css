@@ -1,22 +1,24 @@
-
-
 body {
   margin-top: 20px;
 }
 
 .modal-backdrop {
-  background-color:#ebebe0	;
+  background-color: #ebebe0;
 }
 
-.modal-content{
+.modal-content {
   width: 650px;
 }
 
-.modal-body li{
+.modal-body li {
   list-style: none;
-  font-size:20px;
+  font-size: 20px;
 }
 
-.sum{
+.sum {
   padding-top: 30px;
+}
+
+.img-responsive {
+  width: 100%;
 }
